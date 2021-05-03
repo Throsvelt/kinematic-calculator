@@ -1,0 +1,270 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <cstdlib>
+#include <cmath>
+
+using namespace std;
+
+// Headers
+string toString (double);
+int toInt (string);
+double toDouble (string);
+
+int main() {
+    int menuchoise, menuchoise2, velocity, displacement, acceleration, time, initialvelocity, sonuc, sonuc2;
+    
+    menuchoise = 0;
+    while (menuchoise != 4) {
+        cout << "Find time" << endl;
+        cout << "-----------------------" << endl;
+        cout << "Find velocity" << endl;
+        cout << "-----------------------" << endl;
+        cout << "Find initial velocity" << endl;
+        cout << "-----------------------" << endl;
+        cout << "Find acceleration" << endl;
+        cout << "-----------------------" << endl;	
+        cout << "Find displacement" << endl;
+        cin >> menuchoise;
+        if (menuchoise == 1) {
+            cout << "choose a variables that you have" << endl;
+            cout << "1 / velocity, initial velocity, acceleration" << endl;
+            cout << "2 / velocity, initial velocity, displacement" << endl;
+            cout << "3 / acceleration, initial velocity, displacement" << endl;
+            cout << "press 4 to exit" << endl;
+            cin >> menuchoise2;
+            if (menuchoise2 == 1) {
+                cout << "what is the velocity ?" << endl;
+                cin >> velocity;
+                cout << "what is the initial velocity ?" << endl;
+                cin >> initialvelocity;
+                cout << "what is the acceleraion ?" << endl;
+                cin >> acceleration;
+                sonuc =(velocity - initialvelocity) / acceleration;
+                cout << "time :" << sonuc << endl;
+                return 0;
+            } else {
+                if (menuchoise2 == 2) {
+                    cout << "what is velocity ?" << endl;
+                    cin >> velocity;
+                    cout << "what is the initial velocity ?" << endl;
+                    cin >> initialvelocity;
+                    cout << "what is the displacement ?" << endl;
+                    cin >> displacement;
+                    sonuc = displacement / ((double) (velocity + initialvelocity) / 2);
+                    cout << "time :" << sonuc << endl;
+                    return 0;
+                } else {
+                    if (menuchoise2 == 3) {
+                        cout << "acceleration :" << endl;
+                        cin >> acceleration;
+                        cout << "initial velocity :" << endl;  //formül yok
+                        cin >> initialvelocity;
+                        cout << "displacement :" << endl;
+                        cin >> displacement;
+                        //uğraşamam 
+                    } else {
+                        if (menuchoise == 4) {
+                        } else {
+                        }
+                    }
+                }
+            }
+        } else {
+            if (menuchoise == 2) {
+                cout << "choise a variable list you have" << endl;
+                cout << "1 / initial velocity, acceleration, time" << endl;
+                cout << "2 / displacement, initial velocity, time" << endl;
+                cout << "3 / initial velocity, acceleration, displacement" << endl;
+                cout << "press here for exit" << endl;
+                cin >> menuchoise2;
+                if (menuchoise2 == 1) {
+                    cout << "initial velocity :" << endl;
+                    cin >> initialvelocity;
+                    cout << "acceleration :" << endl;
+                    cin >> acceleration;
+                    cout << "time :" << endl;
+                    cin >> time;
+                    sonuc = initialvelocity + acceleration * time;
+                    cout << "velocity :" << sonuc << endl;
+                } else {
+                    if (menuchoise2 == 2) {
+                        cout << "displacement :" << endl;
+                        cin >> displacement;
+                        cout << "initial velocity :" << endl;
+                        cin >> initialvelocity;
+                        cout << "time :" << endl;
+                        cin >> time;
+                        sonuc = 2 * (displacement / time) - initialvelocity;
+                        cout << "velocity :" << sonuc << endl;
+                    } else {
+                        if (menuchoise2 == 3) {
+                            cout << "initial velocity :" << endl;
+                            cin >> initialvelocity;
+                            cout << "acceleration :" << endl;
+                            cin >> acceleration;
+                            cout << "displacement :" << endl;
+                            cin >> displacement;
+                            //sonuc = initialvelocity*initialvelocity + 2 *acceleration(time*time); //sıkıntı var burada 
+                            sonuc = sqrt(sonuc);
+                            cout << "velocity :" << sonuc << endl;
+                        } else {
+                            if (menuchoise2 == 4) {
+                            } else {
+                                cout << "yanlış bir giriş yaptınız" << endl;
+                            }
+                        }
+                    }
+                }
+            } else {
+                if (menuchoise == 3) {
+                    cout << "choose a variable list that you have" << endl;
+                    cout << "1 / velocity, acceleration, time " << endl;
+                    cout << "2 / displacement, velocity, time" << endl;
+                    cout << "3 / velocity, displacement, acceleration" << endl;
+                    cin >> menuchoise2;
+                    if (menuchoise2 == 1) {
+                        cout << "velocity :" << endl;
+                        cin >> velocity;
+                        cout << "acceleration :" << endl;
+                        cin >> acceleration;
+                        cout << "time :" << endl;
+                        cin >> time;
+                        sonuc = velocity -(acceleration * time);
+                        cout << "initial velocity :" << sonuc << endl;
+                    } else {
+                        if (menuchoise2 == 2) {
+                            cout << "displacement :" << endl;
+                            cin >> displacement;
+                            cout << "velocity :" << endl;
+                            cin >> velocity;
+                            cout << "time :" << endl;
+                            cin >> time;
+                            sonuc =displacement / time * 2 - velocity;
+                            cout << "initial velocity :" << sonuc << endl;
+                        } else {
+                            if (menuchoise2 == 3) {
+                                cout << "velocity :" << endl;
+                                cin >> initialvelocity;
+                                cout << "displacement :" << endl;
+                                cin >> displacement;
+                                cout << "initial velocity :" << endl;
+                                cin >> initialvelocity;
+                                sonuc = 2 * acceleration * displacement - velocity * velocity;
+                                sonuc = sqrt(sonuc);
+                                cout << "initial velocity :" << sonuc << endl;
+                            } else {
+                                cout << "yanlış bir giriş yaptınız" << endl;
+                            }
+                        }
+                    }
+                } else {
+                    if (menuchoise == 4) {
+                        cout << "chose variable list that you have :" << endl;
+                        cout << "1 / initial velocity, time , velocity" << endl;
+                        cout << "2 / displacement, initial velocity, time" << endl;
+                        cout << "3 / velocity, initial velocity, displacement" << endl;
+                        cin >> menuchoise2;
+                        if (menuchoise2 == 1) {
+                            cout << "initial velocity :" << endl;
+                            cin >> initialvelocity;
+                            cout << "time :" << endl;
+                            cin >> time;
+                            cout << "velocity :" << endl;
+                            cin >> velocity;
+                            sonuc = (velocity - initialvelocity) / time;
+                            cout << "acceleration :" << sonuc << endl;
+                        } else {
+                            if (menuchoise2 == 2) {
+                                cout << "displacement :" << endl;
+                                cin >> displacement;
+                                cout << "initial velocity :" << endl;
+                                cin >> initialvelocity;
+                                cout << "time :" << endl;
+                                cin >> time;
+                                sonuc = (initialvelocity*time)+((acceleration+(time*time)/2));
+                                cout << "acceleration :" << sonuc << endl;
+                            } else {
+                                if (menuchoise2 == 3) {
+                                    cout << "velocity :" << endl;
+                                    cin >> velocity;
+                                    cout << "initial velocity :" << endl;
+                                    cin >> initialvelocity;
+                                    cout << "displacement :" << endl;
+                                    cin >> displacement;
+                                    sonuc =(initialvelocity * initialvelocity + 2 * displacement) / velocity * velocity;
+                                    cout << "acceleration :" << sonuc << endl;
+                                } else {
+                                }
+                            }
+                        }
+                    } else {
+                        if (menuchoise == 5) {
+                            cout << "chose variable list that you have :" << endl;
+                            cout << "1 / velocity, initial velocity, time" << endl;
+                            cout << "2 / initial velocity, time, acceleration" << endl;
+                            cout << "3 / velocity, acceleration, initial velocity" << endl;
+                            cin >> menuchoise2;
+                            if (menuchoise2 == 1) {
+                                cout << "velocity :" << endl;
+                                cin >> velocity;
+                                cout << "initial velocity :" << endl;
+                                cin >> initialvelocity;
+                                cout << "time :" << endl;
+                                cin >> time;
+                                sonuc = (initialvelocity + velocity) / 2 * time;
+                                cout << "displacement :" << sonuc << endl;
+                            } else {
+                                if (menuchoise2== 2) {
+                                    
+                                    // tekrar bakılması lazım
+                                    cout << "initial velocity :" << endl;
+                                    cin >> initialvelocity;
+                                    cout << "time :" << endl;
+                                    cin >> time;
+                                    cout << "acceleration :" << endl;
+                                    cin >> acceleration;
+                                    sonuc = initialvelocity * time +1 / 2 * (acceleration * time * time);
+                                    sonuc = sqrt(sonuc);
+                                    cout << "displacement :" << sonuc << endl;
+                                } else {
+                                    if (menuchoise2 == 3) {
+                                        
+                                        // formülde kesinlikle yanlış var
+                                        cout << "velocity :" << endl;
+                                        cin >> velocity;
+                                        cout << "acceleration :" << endl;
+                                        cin >> acceleration;
+                                        cout << "initial velocity :" << endl;
+                                        cin >> initialvelocity;
+                                        sonuc2 = velocity * velocity - initialvelocity * initialvelocity;
+                                        sonuc =sonuc2 / (acceleration * 2);
+                                        sonuc = fabs(sonuc);
+                                        cout << "displacement :" << sonuc << endl;
+                                    } else {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+// The following implements type conversion functions.
+string toString (double value) { //int also
+    stringstream temp;
+    temp << value;
+    return temp.str();
+}
+
+int toInt (string text) {
+    return atoi(text.c_str());
+}
+
+double toDouble (string text) {
+    return atof(text.c_str());
+}
